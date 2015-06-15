@@ -37,7 +37,7 @@ module ReviewAndApprove
         if published and (published==true or published=="true" or published=="on" or self.send(field).to_i>0 rescue false) #in case the field gets set to "0" and "1"
           methods.each do |method|
             # Refresh published cache
-            cr = CacheRecord.find_or_initialize_by_key("#{key_proc.call(self, method)}_published_version")
+            cr = CacheRecord.find_or_initialize_by(key: "#{key_proc.call(self, method)}_published_version")
             cr.cache_data =  self.send(method)
             cr.save
           end
@@ -45,7 +45,7 @@ module ReviewAndApprove
 
         methods.each do |method|
           #Refresh current value cache
-          cr = CacheRecord.find_or_initialize_by_key("#{key_proc.call(self, method)}_current_version")
+          cr = CacheRecord.find_or_initialize_by(key: "#{key_proc.call(self, method)}_current_version")
           cr.cache_data = self.send(method)
           cr.save
         end
