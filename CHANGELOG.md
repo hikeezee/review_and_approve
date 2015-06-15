@@ -1,3 +1,6 @@
+## v0.0.9
+** In Rails 4 find_or_initialize_by_<fields> is deprecated.
+
 ## v0.0.8
 ** Added ability to check if a record has ever been published
 
