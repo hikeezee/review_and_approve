@@ -11,7 +11,7 @@
 </tr>
 <% if diff_val.is_a? Hash %>
   <% diff_val.keys.each do |key| %>
-    <%= render :partial => 'review_and_approve/line_item', :locals => {:key => key, :diff_val => diff_key[key], :depth => depth+1} %>
+    <%= render :partial => 'review_and_approve/line_item', :locals => {:key => key, :diff_val => diff_val[key], :depth => depth+1} %>
   <% end %>
 <% elsif !diff_val.is_a? Array or diff_val.length>2 %>
   <% debugger %>
